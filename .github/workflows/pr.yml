@@ -17,7 +17,7 @@ jobs:
           file_name: .env.test
       - name: Create DB
         run: docker-compose -f docker-compose-test.yml run node_mini_test_react_test npx prisma migrate dev
-      - name: Run Tests
-        run: docker-compose -f docker-compose-test.yml run node_mini_test_react_test npm run test
+      # - name: Run Tests
+      #   run: docker-compose -f docker-compose-test.yml run node_mini_test_react_test npm run test
       - name: Build
         run: npm i && npm run build
