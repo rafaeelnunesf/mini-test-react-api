@@ -1,7 +1,7 @@
 import { conflictError } from "../utils/errorUtils.js";
 import authRepository, {
   UserCredentials,
-} from "./../repositories/authRepository.js";
+} from "../repositories/authRepository.js";
 import bcrypt from "bcrypt";
 
 async function signUp(userCredentials: UserCredentials) {
@@ -14,3 +14,7 @@ async function signUp(userCredentials: UserCredentials) {
 
   await authRepository.create({ ...userCredentials, password: hashedPassword });
 }
+
+export default {
+  signUp,
+};
