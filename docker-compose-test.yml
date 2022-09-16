@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    ports: -2345:5432
+    env_file:
+      - .env.test
+
+  node_mini_test_react_test:
+    container_name: node_mini_test_react_test
+    build: .
+    ports:
+      - 5000:5000
+    env_file:
+      - .env.test
+    depends_on:
+      - db
