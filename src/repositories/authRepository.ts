@@ -9,6 +9,11 @@ async function create(userCredentials: UserCredentials) {
   });
 }
 
+async function findByEmail(email: string) {
+  return prisma.user.findUnique({ where: { email } });
+}
+
 export default {
   create,
+  findByEmail,
 };
